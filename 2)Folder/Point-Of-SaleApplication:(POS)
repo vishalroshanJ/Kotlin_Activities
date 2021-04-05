@@ -1,0 +1,114 @@
+class customer
+{
+    var  reader = Scanner(System.`in`)
+    var cname : String = ""
+    var m : String = ""
+    var add : String = ""
+    var item : Int = 0
+    var i_id = 0
+    var i_name =""
+    var i_quantity = 0
+    var i_price = 0.toFloat()
+    fun insert()
+    {
+        print("Customer Name : ")
+        //cname = cn
+        cname = reader.next()
+        print("Customer Mobile Number : ")
+        //m = mobile
+        m = reader.next()
+        print("Customer Address : ")
+        //add = address
+        add = reader.nextLine()
+        var a = add
+        reader.nextLine()
+        print("Number of Items : ")
+        //item = items
+        item = reader.nextInt()
+        //var num = Array(item){0}
+        val list = ArrayList<Any>()
+        var total = 0.toFloat()
+        for (i in 1..item)
+        {
+            println("Sale Details of $i item")
+            print("Item ID : ")
+            i_id  = reader.nextInt()
+            print("Item Name: ")
+            i_name = reader.next()
+            print("Item Price : ")
+            i_price = reader.nextFloat()
+            print("Item Quantity : ")
+            i_quantity = reader.nextInt()
+            total += i_price * i_quantity
+            list.add(0,i_id)
+            list.add(1,i_name)
+            list.add(2,i_price)
+            list.add(3,i_quantity)
+        }
+        println("                           **** $cname BILL DETAILS : ****         "      )
+        println("               CUSTOMER $cname DETAILS ARE :                       "      )
+        println(" NAME : $cname")
+        println(" MOBILE NUMBER : $m")
+        println(" ADDRESS : $a")
+        println("               PURCHASE DETAILS ARE :                              "      )
+        println(" TOTAL NUMBER OF ITEMS : $item")
+        println("Item ID : ${list.get(0)}")
+        println("Item NAME : ${list.get(1)}")
+        println("Item PRICE : ${list.get(2)}")
+        println("Item QUANTITY : ${list.get(3)}")
+        print(" ****TOTAL BILL AMOUNT ****  ")
+        println("AMOUNT IS $total")
+/*
+        for (d in list)
+        {
+            println(d)
+        }
+*/
+    }
+}
+fun main(args:Array<String>)
+{
+    
+    var c1  = customer()
+    c1.insert()
+}
+(b)
+class Customer(var cname:String,var mobNo : Long , var address :String){
+    fun cus_details(){
+        println("customer name $cname")
+        println("customer moblibe number $mobNo")
+        println("customer address $address")
+    }
+}
+class Items(var itemId:Int, var itemName :String ,var price:Double ,var quantity :Int ){
+    fun item_details(){
+        println("item id $itemId")
+        println("Item name $itemName")
+        println("Item price $price")
+        println("Item quantity $quantity")
+        println("Total bill ${quantity*price}")
+    }
+}
+fun main(){
+    val reader = Scanner(System.`in`)
+    println(" Customer Details ")
+    println("Customer Name : ")
+    var cn:String=reader.next()
+    println("Customer Mobile :  ")
+    var mob:Long=reader.nextLong()
+    println("Enter Customer Address")
+    var add:String=reader.next()
+    var c = Customer(cn,mob,add)
+    println("Item Details")
+    println("Enter Item Id")
+    var id:Int=reader.nextInt()
+    println("Enter Item Name")
+    var nam:String=reader.next()
+    println("Enter Item Price")
+    var p:Double=reader.nextDouble()
+    println("Enter Item Quantity")
+    var q:Int=reader.nextInt()
+    var i = Items(id,nam,p,q)
+    c.cus_details()
+    i.item_details()
+}
